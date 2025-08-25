@@ -1,0 +1,151 @@
+:root {
+  --blue: rgb(12, 4, 128);
+  --white: rgb(0, 0, 0);
+  --yellow: rgb(181, 137, 0);
+  --orange: rgb(228, 130, 10);
+  --red: rgb(220, 50, 47);
+  --magenta: rgb(211, 54, 130);
+  --violet: rgb(51, 1, 94);
+  --blue: rgb(38 139 210);
+  --cyan: rgb(42, 161, 152);
+  --green: rgb(133, 153, 0);
+  --base-font-color: rgb(131, 148, 150);
+  --secondary-font-color: rgb(88, 110, 117);
+  --emphasised-font: rgb(147, 161, 161);
+
+  --c-background-color: rgb(0, 43, 54);
+  --c-background-highlights: rgb(7, 54, 66);
+  --c-yellow: var(--yellow);
+  --c-magenta: var(--magenta);
+  --c-orange: var(--orange);
+  --c-green: var(--green);
+  --c-cyan: var(--cyan);
+  --c-blue: var(--blue);
+  --c-cyan-light: rgba(42, 161, 152, 0.2);
+  --c-cyan-dark: rgba(42, 161, 152, 0.8);
+}
+
+body {
+  max-width: 800px;
+  background-color: var(--c-background-color);
+  font-family: Tahoma;
+  color: var(--base-font-color);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header {
+  background-color: var(--c-background-highlights);
+  text-align: center;
+  font-size: 150%;
+  color: var(--c-yellow);
+  padding: 1rem 0;
+}
+
+main {
+  color: var(--c-base-font-color);
+  padding: 1rem 0;
+}
+
+a {
+  color: var(--c---blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--c-orange);
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  font-size: 130%;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+aside {
+  color: var(--c-yellow);
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--c-violet);
+}
+
+aside a {
+  color: var(--c-red);
+}
+
+aside a:hover {
+  color: var(--c-blue);
+}
+a {
+    color: var(--violet); /* 链接默认颜色 */
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--c-orange); /* 鼠标悬停时的颜色 */
+}
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  padding-top: 5px;
+  color: var(--c-violet);
+}
+
+footer {
+  background-color: var(--c-background-highlights);
+  color: var(--base-font-color);
+  text-align: center;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--c-cyan);
+}
+
+table th {
+  background-color: var(--c-cyan-dark);
+  color: var(--c-background-color);
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--c-cyan-light);
+}
+
+table tr:hover {
+  background-color: rgba(42, 161, 152, 0.3);
+}
+
+table a {
+  color: var(--c-cyan);
+}
+
+table a:hover {
+  color: var(--c-yellow);
+}
+
+.subsection {
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--c-cyan);
+}
