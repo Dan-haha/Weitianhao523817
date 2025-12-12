@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Pre-Order Style Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .navbar-logo .xbox-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #107C10;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .navbar-logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #107C10;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar-link {
+            color: #737373;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar-link:hover, .navbar-link.active {
+            color: #107C10;
+            border-bottom: 2px solid #107C10;
+        }
+
+        /* Page Container */
+        .page {
+            min-height: calc(100vh - 80px);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Page 1: Cover Page */
+        .cover-page {
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .cover-title {
+            font-size: 64px;
+            font-weight: 700;
+            color: #107C10;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.06);
+        }
+
+        .cover-subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            color: #737373;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .cover-divider {
+            width: 100px;
+            height: 5px;
+            background-color: #107C10;
+            margin: 0 auto 3rem;
+            border-radius: 3px;
+        }
+
+        .cover-tagline {
+            font-size: 20px;
+            color: #555;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .cover-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        /* Page 2: Typography Page */
+        .typography-page {
+            align-items: flex-start;
+            padding: 3rem 4rem;
+        }
+
+        .page-header {
+            font-size: 40px;
+            font-weight: 600;
+            color: #054B16;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .page-header svg {
+            width: 36px;
+            height: 36px;
+            fill: #107C10;
+        }
+
+        .typography-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .typography-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #107C10;
+        }
+
+        .typography-card h3 {
+            font-size: 24px;
+            color: #107C10;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .typography-preview {
+            margin: 1rem 0;
+        }
+
+        .preview-h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #107C10;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-h2 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #054B16;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-body {
+            font-size: 16px;
+            font-weight: 400;
+            color: #737373;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-cta {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: #107C10;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .typography-specs {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #E6E6E6;
+        }
+
+        /* Page 3: Color Palette Page */
+        .color-page {
+            align-items: flex-start;
+            padding: 3rem 4rem;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .color-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 180px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .color-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+        }
+
+        .color-code {
+            font-size: 18px;
+            font-weight: 500;
+            color: #107C10;
+            margin-bottom: 0.8rem;
+        }
+
+        .color-rgb {
+            font-size: 16px;
+            color: #737373;
+            margin-bottom: 0.8rem;
+        }
+
+        .color-usage {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Page 4: Iconography Page */
+        .icon-page {
+            align-items: flex-start;
+            padding: 3rem 4rem;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            width: 100%;
+        }
+
+        .icon-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .icon-svg {
+            width: 80px;
+            height: 80px;
+            fill: #333;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 16px;
+            background-color: #FAFAFA;
+            border: 1px solid #E6E6E6;
+        }
+
+        .icon-card:hover .icon-svg {
+            fill: white;
+            background-color: #107C10;
+            border-color: #107C10;
+            transform: scale(1.1);
+        }
+
+        .icon-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .icon-specs {
+            font-size: 14px;
+            color: #737373;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-links {
+                gap: 1rem;
+            }
+            .cover-title {
+                font-size: 48px;
+            }
+            .cover-subtitle {
+                font-size: 22px;
+            }
+            .page-header {
+                font-size: 32px;
+            }
+            .typography-page, .color-page, .icon-page {
+                padding: 2rem 1.5rem;
+            }
+            .typography-grid, .color-grid, .icon-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <div class="xbox-icon">X</div>
+            <span class="navbar-logo-text">Xbox Style Guide</span>
+        </div>
+        <div class="navbar-links">
+            <a href="#cover" class="navbar-link active">Cover</a>
+            <a href="#typography" class="navbar-link">Typography</a>
+            <a href="#color" class="navbar-link">Color Palette</a>
+            <a href="#iconography" class="navbar-link">Iconography</a>
+        </div>
+    </nav>
+
+    <!-- Page 1: Cover Page -->
+    <section id="cover" class="page cover-page">
+        <div class="cover-bg"></div>
+        <h1 class="cover-title">Xbox Pre-Order Style Guide</h1>
+        <p class="cover-subtitle">Elevating Brand Consistency</p>
+        <div class="cover-divider"></div>
+        <p class="cover-tagline">
+            A comprehensive style aesthetics guide for Xbox accessory pre-order interfaces, 
+            featuring brand-aligned typography, signature color palettes, and intuitive iconography 
+            following Microsoft Fluent Design principles and Xbox brand guidelines.
+        </p>
+    </section>
+
+    <!-- Page 2: Typography Page -->
+    <section id="typography" class="page typography-page">
+        <h2 class="page-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M4 5h16v2H4zm0 4h16v2H4zm0 4h12v2H4zm0 4h12v2H4z"/>
+            </svg>
+            Typography
+        </h2>
+        <div class="typography-grid">
+            <div class="typography-card">
+                <h3>Page Title (H1)</h3>
+                <div class="typography-preview">
+                    <div class="preview-h1">Xbox Elite Controller Pre-Order</div>
+                </div>
+                <div class="typography-specs">
+                    Font Family: Segoe UI (SemiBold)<br>
+                    Font Size: 32px<br>
+                    Color: #107C10<br>
+                    Usage: Main page headings, primary visual focus<br>
+                    Accessibility: Contrast ratio 7:1 (WCAG AA compliant)
+                </div>
+            </div>
+            <div class="typography-card">
+                <h3>Section Heading (H2)</h3>
+                <div class="typography-preview">
+                    <div class="preview-h2">Pre-Order Details & Delivery</div>
+                </div>
+                <div class="typography-specs">
+                    Font Family: Segoe UI (Regular)<br>
+                    Font Size: 24px<br>
+                    Color: #054B16<br>
+                    Usage: Section headings, sub-categories<br>
+                    Accessibility: Contrast ratio 8.5:1 (WCAG AAA compliant)
+                </div>
+            </div>
+            <div class="typography-card">
+                <h3>Body Text</h3>
+                <div class="typography-preview">
+                    <div class="preview-body">Estimated delivery: November 2025. Free shipping on all pre-orders over $99.</div>
+                </div>
+                <div class="typography-specs">
+                    Font Family: Segoe UI (Regular)<br>
+                    Font Size: 16px<br>
+                    Color: #737373<br>
+                    Usage: Descriptions, instructions, general content<br>
+                    Accessibility: Contrast ratio 4.7:1 (WCAG AA compliant)
+                </div>
+            </div>
+            <div class="typography-card">
+                <h3>CTA Buttons</h3>
+                <div class="typography-preview">
+                    <div class="preview-cta">Add to Cart</div>
+                </div>
+                <div class="typography-specs">
+                    Font Family: Segoe UI (SemiBold)<br>
+                    Font Size: 16px<br>
+                    Text Color: #FFFFFF | Background: #107C10<br>
+                    Usage: Action buttons, primary user interactions<br>
+                    Accessibility: Contrast ratio 7:1 (WCAG AA compliant)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Color Palette Page -->
+    <section id="color" class="page color-page">
+        <h2 class="page-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm0-18c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8z"/>
+                <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+            </svg>
+            Colour Palette
+        </h2>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #107C10;"></div>
+                <h3 class="color-name">Xbox Green (Primary)</h3>
+                <div class="color-code">#107C10</div>
+                <div class="color-rgb">RGB: 16, 124, 16</div>
+                <div class="color-usage">Primary brand color for headings, buttons, and key interactive elements. Represents Xbox's core identity and visual recognition.</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #054B16;"></div>
+                <h3 class="color-name">Dark Green (Secondary)</h3>
+                <div class="color-code">#054B16</div>
+                <div class="color-rgb">RGB: 5, 75, 22</div>
+                <div class="color-usage">Secondary accent color for hover states, subheadings, and decorative elements. Complements primary green without overwhelming.</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #E6E6E6;"></div>
+                <h3 class="color-name">Light Gray (Neutral)</h3>
+                <div class="color-code">#E6E6E6</div>
+                <div class="color-rgb">RGB: 230, 230, 230</div>
+                <div class="color-usage">Neutral background color for content areas, cards, and page sections. Ensures readability and visual breathing room.</div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: #737373;"></div>
+                <h3 class="color-name">Dark Gray (Neutral)</h3>
+                <div class="color-code">#737373</div>
+                <div class="color-rgb">RGB: 115, 115, 115</div>
+                <div class="color-usage">Neutral text color for body content, captions, and secondary information. Avoids harsh contrast with light backgrounds.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Iconography Page -->
+    <section id="iconography" class="page icon-page">
+        <h2 class="page-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M20 19.59V8c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v11.59c0 .68.35 1.3.9 1.69L12 23.4l9.1-2.12c.55-.39.9-1.01.9-1.69zM12 18l-8-8h6V4h4v6h6l-8 8z"/>
+            </svg>
+            Iconography
+        </h2>
+        <div class="icon-grid">
+            <div class="icon-card">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.67-1.43c-.16-.35-.52-.57-.9-.57H2c-.55 0-1 .45-1 1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <h3 class="icon-name">Shopping Cart</h3>
+                <div class="icon-specs">
+                    Style: Fluent Line<br>
+                    Size: 24x24px (base) / 80x80px (display)<br>
+                    Usage: Add to cart, checkout flow<br>
+                    Hover State: Fills with Xbox Green (#107C10)
+                </div>
+            </div>
+            <div class="icon-card">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                </svg>
+                <h3 class="icon-name">Calendar</h3>
+                <div class="icon-specs">
+                    Style: Fluent Line<br>
+                    Size: 24x24px (base) / 80x80px (display)<br>
+                    Usage: Delivery date, pre-order timeline<br>
+                    Hover State: Fills with Xbox Green (#107C10)
+                </div>
+            </div>
+            <div class="icon-card">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <h3 class="icon-name">Download Confirm</h3>
+                <div class="icon-specs">
+                    Style: Fluent Line<br>
+                    Size: 24x24px (base) / 80x80px (display)<br>
+                    Usage: Order confirmation, receipt download<br>
+                    Hover State: Fills with Xbox Green (#107C10)
+                </div>
+            </div>
+            <div class="icon-card">
+                <svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+                <h3 class="icon-name">Info Icon</h3>
+                <div class="icon-specs">
+                    Style: Fluent Line<br>
+                    Size: 24x24px (base) / 80x80px (display)<br>
+                    Usage: Help text, pre-order FAQs<br>
+                    Hover State: Fills with Xbox Green (#107C10)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Active Nav Link Highlighting
+        const navLinks = document.querySelectorAll('.navbar-link');
+        const sections = document.querySelectorAll('.page');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
