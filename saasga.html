@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Elite Controller - Pre-Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .xbox-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #107C10;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #107C10;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            color: #737373;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #107C10;
+            border-bottom: 2px solid #107C10;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #737373;
+            transition: fill 0.3s ease;
+        }
+
+        .cart-icon:hover svg {
+            fill: #107C10;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background-color: #107C10;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Page Container */
+        .page {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 3rem;
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Page 1: Home/Product Landing */
+        .home-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .product-info h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #107C10;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .product-tag {
+            display: inline-block;
+            background-color: #107C10;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-subtitle {
+            font-size: 24px;
+            font-weight: 500;
+            color: #054B16;
+            margin-bottom: 2rem;
+        }
+
+        .product-desc {
+            font-size: 16px;
+            color: #737373;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2.5rem;
+            display: block;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .primary-btn {
+            background-color: #107C10;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(16, 124, 16, 0.15);
+        }
+
+        .primary-btn:hover {
+            background-color: #054B16;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 124, 16, 0.2);
+        }
+
+        .secondary-btn {
+            background-color: white;
+            color: #107C10;
+            border: 2px solid #107C10;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background-color: #F0F8F0;
+            transform: translateY(-2px);
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .product-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Page 2: Product Details */
+        .details-page {
+            padding-top: 3rem;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: #054B16;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            border: 2px solid #107C10;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .specs-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #E6E6E6;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .spec-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .spec-value {
+            color: #737373;
+        }
+
+        .delivery-info {
+            background-color: #F8F8F8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #107C10;
+        }
+
+        .delivery-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #107C10;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Page 3: Checkout Page */
+        .checkout-page {
+            padding-top: 3rem;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #E6E6E6;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #107C10;
+            box-shadow: 0 0 0 3px rgba(16, 124, 16, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .order-summary {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #054B16;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 0;
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Page 4: Confirmation Page */
+        .confirm-page {
+            padding-top: 4rem;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            fill: #107C10;
+            margin-bottom: 2rem;
+        }
+
+        .confirm-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #107C10;
+            margin-bottom: 1rem;
+        }
+
+        .confirm-subtitle {
+            font-size: 20px;
+            color: #737373;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .order-details-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: left;
+        }
+
+        .order-details-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #054B16;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .order-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #F0F0F0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .home-page, .details-grid, .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
+                padding: 1rem 1.5rem;
+            }
+            .navbar-links {
+                gap: 1.5rem;
+            }
+            .page {
+                padding: 2rem 1.5rem;
+            }
+            .product-info h1 {
+                font-size: 36px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-logo" onclick="showPage('home')">
+            <div class="xbox-icon">X</div>
+            <span class="logo-text">Xbox Store</span>
+        </a>
+        <div class="navbar-links">
+            <a href="#" class="nav-link active" onclick="showPage('home')">Home</a>
+            <a href="#" class="nav-link" onclick="showPage('details')">Details</a>
+            <a href="#" class="nav-link" onclick="showPage('checkout')">Checkout</a>
+            <div class="cart-icon" onclick="showPage('checkout')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.37-.66-.11-1.48-.87-1.48H5.21l-.67-1.43c-.16-.35-.52-.57-.9-.57H2c-.55 0-1 .45-1 1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+                <div class="cart-badge">1</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page 1: Home/Product Landing -->
+    <div id="home" class="page active home-page">
+        <div class="product-info">
+            <span class="product-tag">PRE-ORDER NOW</span>
+            <h1>Xbox Elite Wireless Controller Series 2</h1>
+            <h2 class="product-subtitle">Customizable. Precision-Engineered. Performance-Ready.</h2>
+            <p class="product-desc">
+                Experience the ultimate in wireless gaming control with the Xbox Elite Wireless Controller Series 2. 
+                Featuring interchangeable thumbsticks, hair trigger locks, and a wrap-around rubberized grip, 
+                this controller is designed for serious gamers who demand precision and customization.
+            </p>
+            <span class="price">$179.99</span>
+            <div class="btn-group">
+                <button class="primary-btn" onclick="showPage('checkout')">Pre-Order Now</button>
+                <button class="secondary-btn" onclick="showPage('details')">View Details</button>
+            </div>
+        </div>
+        <div class="product-img-container">
+            <img src="https://picsum.photos/id/96/800/600" alt="Xbox Elite Controller" class="product-img">
+        </div>
+    </div>
+
+    <!-- Page 2: Product Details -->
+    <div id="details" class="page details-page">
+        <h2 class="page-title">Product Details</h2>
+        <div class="details-grid">
+            <div class="product-gallery">
+                <img src="https://picsum.photos/id/96/800/600" alt="Xbox Elite Controller Main" class="gallery-img" id="main-gallery-img">
+                <div class="thumbnails">
+                    <img src="https://picsum.photos/id/96/200/150" alt="Thumbnail 1" class="thumbnail active" onclick="changeGalleryImg('https://picsum.photos/id/96/800/600')">
+                    <img src="https://picsum.photos/id/26/200/150" alt="Thumbnail 2" class="thumbnail" onclick="changeGalleryImg('https://picsum.photos/id/26/800/600')">
+                    <img src="https://picsum.photos/id/47/200/150" alt="Thumbnail 3" class="thumbnail" onclick="changeGalleryImg('https://picsum.photos/id/47/800/600')">
+                    <img src="https://picsum.photos/id/60/200/150" alt="Thumbnail 4" class="thumbnail" onclick="changeGalleryImg('https://picsum.photos/id/60/800/600')">
+                </div>
+            </div>
+            <div class="product-specs">
+                <h3 style="font-size: 24px; color: #107C10; margin-bottom: 2rem;">Technical Specifications</h3>
+                <ul class="specs-list">
+                    <li>
+                        <span class="spec-label">Compatibility</span>
+                        <span class="spec-value">Xbox Series X|S, Xbox One, Windows 10/11</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Wireless Range</span>
+                        <span class="spec-value">Up to 30 feet (9 meters)</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Battery Life</span>
+                        <span class="spec-value">Up to 40 hours (rechargeable)</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Customization</span>
+                        <span class="spec-value">4 interchangeable thumbsticks, 2 paddles</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Connectivity</span>
+                        <span class="spec-value">Bluetooth, Xbox Wireless</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Weight</span>
+                        <span class="spec-value">348 grams</span>
+                    </li>
+                </ul>
+
+                <div class="delivery-info">
+                    <h3>Pre-Order Delivery Information</h3>
+                    <p>Estimated Release Date: November 15, 2025</p>
+                    <p>Estimated Delivery: November 18-22, 2025</p>
+                    <p>Free Standard Shipping on all pre-orders</p>
+                </div>
+
+                <button class="primary-btn" style="width: 100%;" onclick="showPage('checkout')">Pre-Order Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Checkout Page -->
+    <div id="checkout" class="page checkout-page">
+        <h2 class="page-title">Checkout</h2>
+        <div class="checkout-grid">
+            <div class="checkout-form">
+                <h3 style="font-size: 24px; color: #054B16; margin-bottom: 2rem;">Shipping Information</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" placeholder="John Doe">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" placeholder="john.doe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-input" placeholder="123 Gaming Street">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-input" placeholder="Seattle">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">ZIP/Postal Code</label>
+                        <input type="text" class="form-input" placeholder="98101">
+                    </div>
+                </div>
+
+                <h3 style="font-size: 24px; color: #054B16; margin: 2.5rem 0 2rem;">Payment Information</h3>
+                
+                <div class="form-group">
+                    <label class="form-label">Card Number</label>
+                    <input type="text" class="form-input" placeholder="1234 5678 9012 3456">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Date</label>
+                        <input type="text" class="form-input" placeholder="11/27">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">CVV</label>
+                        <input type="text" class="form-input" placeholder="123">
+                    </div>
+                </div>
+
+                <button class="primary-btn" style="margin-top: 2rem;" onclick="showPage('confirm')">Complete Pre-Order</button>
+            </div>
+
+            <div class="order-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-item">
+                    <span>Xbox Elite Controller Series 2</span>
+                    <span>$179.99</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tax (Estimated)</span>
+                    <span>$14.40</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span>$194.39</span>
+                </div>
+                <button class="primary-btn" style="width: 100%; margin-top: 1rem;">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Confirmation Page -->
+    <div id="confirm" class="page confirm-page">
+        <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+        <h2 class="confirm-title">Pre-Order Confirmed!</h2>
+        <p class="confirm-subtitle">Thank you for pre-ordering the Xbox Elite Wireless Controller Series 2. We've sent a confirmation email with all your order details.</p>
+        
+        <div class="order-details-card">
+            <h3>Order #XBOX2025-87692</h3>
+            <div class="order-detail-row">
+                <span>Product</span>
+                <span>Xbox Elite Wireless Controller Series 2</span>
+            </div>
+            <div class="order-detail-row">
+                <span>Pre-Order Date</span>
+                <span>October 12, 2025</span>
+            </div>
+            <div class="order-detail-row">
+                <span>Estimated Delivery</span>
+                <span>November 18-22, 2025</span>
+            </div>
+            <div class="order-detail-row">
+                <span>Total Amount</span>
+                <span>$194.39</span>
+            </div>
+            <div class="order-detail-row">
+                <span>Payment Status</span>
+                <span>Paid (Pending Capture)</span>
+            </div>
+        </div>
+
+        <button class="primary-btn" onclick="showPage('home')">Back to Home</button>
+    </div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Gallery Image Change
+        function changeGalleryImg(src) {
+            document.getElementById('main-gallery-img').src = src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.src.includes(src.split('/id/')[1].split('/')[0])) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        // Add to cart functionality
+        document.querySelectorAll('.primary-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.textContent.includes('Pre-Order')) {
+                    document.querySelector('.cart-badge').textContent = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
